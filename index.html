@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMS - Human Resource Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/Final_Project/scss/landing.css">
+</head>
+<body class="min-h-screen">
+    
+    <!--Header -->
+    <nav class="nav-bar fixed top-0 w-full z-50 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo bên trái -->
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v12h4a2 2 0 002-2v-2h-6V12zm-8 0H4a2 2 0 01-2-2v-2h6V12zm8-4V4a2 2 0 00-2-2H8a2 2 0 00-2 2v4h12z"></path>
+                    </svg>
+                    <span class="text-xl font-bold">HRMS</span>
+                </div>
+                
+                <!-- Menu bên phải (ẩn trên mobile) -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    
+                    <!-- Toggle Dark/Light Mode -->
+                    <div id="theme-toggle" class="theme-toggle-switch">
+                        <div class="toggle-thumb">
+                            <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <a href="login.html" class="login-button px-6 py-2">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION - PHẦN GIỚI THIỆU CHÍNH-->
+    <section class="hero-section pt-32 pb-20 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="hero-title text-5xl md:text-6xl font-bold mb-6">
+                Manage Your Team<br>
+                <span class="gradient-text">Smarter & Faster</span>
+            </h1>
+            <p class="hero-description text-xl mb-8 max-w-2xl mx-auto">
+                Modern HR Management System giúp bạn quản lý nhân sự, chấm công, và tính lương một cách hiệu quả nhất
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="login.html" class="cta-button primary">
+                    Get Started
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+                <a href="#features" class="cta-button secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION - TÍNH NĂNG NỔI BẬT -->
+    <section id="features" class="features-section py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Tiêu đề section -->
+            <h2 class="section-title text-4xl font-bold text-center mb-4">Tính năng nổi bật</h2>
+            <p class="section-description text-center mb-16">Giải pháp toàn diện giúp doanh nghiệp quản lý nhân sự hiệu quả</p>
+            
+            <!-- Grid 6 tính năng chính -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Feature 1: Chấm công -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Chấm công & Ca làm</h3>
+                    <p class="feature-description">
+                        Chấm công GPS/FaceID, quản lý ca linh hoạt, duyệt đổi ca tự động. 
+                        <span class="text-purple-400 font-semibold">Giảm 60% thời gian tổng hợp công</span>.
+                    </p>
+                </div>
+
+                <!-- Feature 2: Nghỉ phép -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Quản lý nghỉ phép</h3>
+                    <p class="feature-description">
+                        Tạo đơn nhanh, luồng duyệt đa cấp, xem lịch nghỉ phép toàn phòng ban. Tự động cập nhật số ngày phép còn lại.
+                    </p>
+                </div>
+
+                <!-- Feature 3: Payroll -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Payroll tự động</h3>
+                    <p class="feature-description">
+                        Công thức lương linh hoạt, quản lý phụ cấp/khấu trừ, xuất file ngân hàng. 
+                        <span class="text-purple-400 font-semibold">Sai số &lt;0.5%</span>.
+                    </p>
+                </div>
+
+                <!-- Feature 4: Tuyển dụng -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Tuyển dụng & Onboarding</h3>
+                    <p class="feature-description">
+                        Pipeline ứng viên, quản lý JD, hồ sơ điện tử. Onboarding tự động với checklist và tài liệu cần thiết.
+                    </p>
+                </div>
+
+                <!-- Feature 5: Đánh giá OKR -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Đánh giá & OKR</h3>
+                    <p class="feature-description">
+                        Thiết lập mục tiêu, chu kỳ review định kỳ, ma trận 9-box. Theo dõi KPI và phát triển nhân sự hiệu quả.
+                    </p>
+                </div>
+
+                <!-- Feature 6: Self-service -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Cổng nhân sự Self-Service</h3>
+                    <p class="feature-description">
+                        Nhân viên tự tra cứu hồ sơ, phiếu lương, gửi yêu cầu hỗ trợ. App mobile hoạt động offline.
+                    </p>
+                </div>
+            </div>
+
+            <!-- USP - Điểm khác biệt -->
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-bold mb-8">Tại sao chọn chúng tôi?</h3>
+                <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="usp-card">
+                        <div class="text-4xl mb-3">⚡</div>
+                        <h4 class="font-semibold mb-2">No-code Workflow</h4>
+                        <p class="text-sm text-gray-400">Tự thiết kế luồng duyệt không cần lập trình</p>
+                    </div>
+                    <div class="usp-card">
+                        <div class="text-4xl mb-3">🔗</div>
+                        <h4 class="font-semibold mb-2">Tích hợp dễ dàng</h4>
+                        <p class="text-sm text-gray-400">Kết nối MISA, SAP, Office 365, Slack</p>
+                    </div>
+                    <div class="usp-card">
+                        <div class="text-4xl mb-3">📱</div>
+                        <h4 class="font-semibold mb-2">Mobile Offline</h4>
+                        <p class="text-sm text-gray-400">App hoạt động ngay cả khi không có mạng</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Table -->
+            <div class="mt-20">
+                <h3 class="text-3xl font-bold text-center mb-12">Chọn gói phù hợp</h3>
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Gói Free -->
+                    <div class="pricing-card">
+                        <h4 class="text-xl font-bold mb-2">Free</h4>
+                        <div class="text-3xl font-bold mb-4">0đ<span class="text-sm text-gray-400">/tháng</span></div>
+                        <ul class="space-y-3 mb-6 text-left">
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✓</span><span>Tối đa 10 nhân viên</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✓</span><span>Chấm công cơ bản</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✓</span><span>Quản lý nghỉ phép</span></li>
+                            <li class="flex items-start"><span class="text-gray-500 mr-2">✗</span><span class="text-gray-500">Payroll</span></li>
+                        </ul>
+                        <button class="cta-button secondary w-full">Dùng thử</button>
+                    </div>
+
+                    <!-- Gói Pro (Featured) -->
+                    <div class="pricing-card featured">
+                        <div class="badge">Phổ biến nhất</div>
+                        <h4 class="text-xl font-bold mb-2">Pro</h4>
+                        <div class="text-3xl font-bold mb-4">99k<span class="text-sm text-gray-400">/nhân viên/tháng</span></div>
+                        <ul class="space-y-3 mb-6 text-left">
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✓</span><span>Không giới hạn nhân viên</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✓</span><span>Tất cả tính năng Free</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✓</span><span>Payroll & Báo cáo</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✓</span><span>Mobile app</span></li>
+                        </ul>
+                        <button class="cta-button primary w-full">Bắt đầu</button>
+                    </div>
+
+                    <!-- Gói Enterprise -->
+                    <div class="pricing-card">
+                        <h4 class="text-xl font-bold mb-2">Enterprise</h4>
+                        <div class="text-3xl font-bold mb-4">Liên hệ</div>
+                        <ul class="space-y-3 mb-6 text-left">
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✓</span><span>Tất cả tính năng Pro</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✓</span><span>Tích hợp ERP</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✓</span><span>Hỗ trợ 24/7</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✓</span><span>Custom workflow</span></li>
+                        </ul>
+                        <button class="cta-button secondary w-full">Liên hệ</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA cuối section -->
+            <div class="text-center mt-16">
+                <a href="#contact" class="cta-button primary inline-flex items-center text-lg px-8 py-4">
+                    Bắt đầu miễn phí
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION - GIỚI THIỆU VỀ CÔNG TY
+         ============================================ -->
+    <section id="about" class="about-section py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Sứ mệnh -->
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold mb-4">Về chúng tôi</h2>
+                <p class="section-description max-w-3xl mx-auto text-lg leading-relaxed">
+                    HRMS được sinh ra từ nhu cầu thực tế của doanh nghiệp Việt Nam. 
+                    Chúng tôi hiểu rằng mỗi công ty cần một hệ thống <span class="text-purple-400 font-semibold">linh hoạt, dễ dùng</span>, 
+                    và <span class="text-purple-400 font-semibold">phù hợp với văn hóa làm việc</span> của người Việt.
+                </p>
+            </div>
+
+            <!-- Thống kê -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold text-center mb-12">Con số ấn tượng</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="stat-card">
+                        <div class="stat-number">1,200+</div>
+                        <div class="stat-label">Doanh nghiệp</div>
+                        <div class="stat-sublabel">tin tưởng sử dụng</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">85,000+</div>
+                        <div class="stat-label">Nhân viên</div>
+                        <div class="stat-sublabel">được quản lý mỗi ngày</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">99.95%</div>
+                        <div class="stat-label">Uptime</div>
+                        <div class="stat-sublabel">hoạt động ổn định</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">72</div>
+                        <div class="stat-label">NPS Score</div>
+                        <div class="stat-sublabel">khách hàng hài lòng</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold text-center mb-4">Đội ngũ lãnh đạo</h3>
+                <p class="text-center text-gray-400 mb-12">Những con người đam mê công nghệ và nhân sự</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h4 class="team-name">Nguyễn Văn A</h4>
+                        <p class="team-role">CEO & Co-Founder</p>
+                        <p class="team-bio">15 năm kinh nghiệm trong HR Tech</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h4 class="team-name">Trần Thị B</h4>
+                        <p class="team-role">CTO</p>
+                        <p class="team-bio">Chuyên gia Cloud & Security</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h4 class="team-name">Lê Văn C</h4>
+                        <p class="team-role">Head of Product</p>
+                        <p class="team-bio">Ex-Product Manager tại Grab</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h4 class="team-name">Phạm Thị D</h4>
+                        <p class="team-role">Head of Customer Success</p>
+                        <p class="team-bio">Chuyên gia HR với 12 năm kinh nghiệm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo wall -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold text-center mb-4">Được tin dùng bởi</h3>
+                <p class="text-center text-gray-400 mb-12">Các doanh nghiệp hàng đầu Việt Nam</p>
+                <div class="logo-wall">
+                    <div class="logo-item"><div class="logo-placeholder"><span class="font-bold text-xl">TECH</span><span class="text-xs">COMPANY</span></div></div>
+                    <div class="logo-item"><div class="logo-placeholder"><span class="font-bold text-xl">RETAIL</span><span class="text-xs">GROUP</span></div></div>
+                    <div class="logo-item"><div class="logo-placeholder"><span class="font-bold text-xl">BANK</span><span class="text-xs">FINANCE</span></div></div>
+                    <div class="logo-item"><div class="logo-placeholder"><span class="font-bold text-xl">EDU</span><span class="text-xs">TECH</span></div></div>
+                    <div class="logo-item"><div class="logo-placeholder"><span class="font-bold text-xl">HEALTH</span><span class="text-xs">CARE</span></div></div>
+                    <div class="logo-item"><div class="logo-placeholder"><span class="font-bold text-xl">FOOD</span><span class="text-xs">CORP</span></div></div>
+                </div>
+            </div>
+
+            <!-- Chứng nhận -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold text-center mb-12">Chứng nhận & Bảo mật</h3>
+                <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="cert-title">ISO 27001</h4>
+                        <p class="cert-description">Chứng nhận quản lý an toàn thông tin quốc tế</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <h4 class="cert-title">Mã hóa AES-256</h4>
+                        <p class="cert-description">Bảo vệ dữ liệu với chuẩn mã hóa ngân hàng</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h4 class="cert-title">Sao lưu tự động</h4>
+                        <p class="cert-description">Backup mỗi 6h, Disaster Recovery trong 4h</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Văn hóa & Tuyển dụng -->
+            <div class="culture-section">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h3 class="text-2xl font-bold mb-4">Gia nhập đội ngũ của chúng tôi</h3>
+                    <p class="text-gray-400 mb-8">
+                        Chúng tôi đang tìm kiếm những tài năng đam mê công nghệ và muốn tạo ra sự thay đổi 
+                        trong cách doanh nghiệp quản lý nhân sự.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4 mb-8">
+                        <span class="hiring-badge">🚀 Remote-friendly</span>
+                        <span class="hiring-badge">💰 Competitive salary</span>
+                        <span class="hiring-badge">🏥 Full benefits</span>
+                        <span class="hiring-badge">📚 Learning budget</span>
+                    </div>
+                    <a href="#contact" class="cta-button secondary inline-flex items-center">
+                        Xem vị trí tuyển dụng
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION - LIÊN HỆ
+         ============================================ -->
+    <section id="contact" class="contact-section py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Tiêu đề -->
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold mb-4">Liên hệ với chúng tôi</h2>
+                <p class="section-description text-lg">
+                    Để lại thông tin, chúng tôi sẽ liên hệ trong vòng <span class="text-purple-400 font-semibold">24 giờ</span>
+                </p>
+            </div>
+
+            <!-- Grid 2 cột: Form + Thông tin -->
+            <div class="grid md:grid-cols-2 gap-12">
+                
+                <!-- FORM BÊN TRÁI -->
+                <div class="contact-form-wrapper">
+                    <h3 class="text-2xl font-bold mb-6">Gửi yêu cầu</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div class="form-group">
+                            <label for="fullname" class="form-label">Họ và tên <span class="text-red-400">*</span></label>
+                            <input type="text" id="fullname" name="fullname" required placeholder="Nguyễn Văn A" class="form-input"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email <span class="text-red-400">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="email@company.com" class="form-input"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="company" class="form-label">Công ty <span class="text-red-400">*</span></label>
+                            <input type="text" id="company" name="company" required placeholder="Tên công ty của bạn" class="form-input"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-size" class="form-label">Quy mô công ty <span class="text-red-400">*</span></label>
+                            <select id="company-size" name="company-size" required class="form-input">
+                                <option value="">-- Chọn quy mô --</option>
+                                <option value="1-10">1-10 nhân viên</option>
+                                <option value="11-50">11-50 nhân viên</option>
+                                <option value="51-200">51-200 nhân viên</option>
+                                <option value="201-500">201-500 nhân viên</option>
+                                <option value="500+">Trên 500 nhân viên</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Nội dung / Use case</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Chia sẻ nhu cầu của bạn..." class="form-input"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="flex items-start cursor-pointer">
+                                <input type="checkbox" id="request-demo" name="request-demo" class="form-checkbox"/>
+                                <span class="ml-3 text-sm">Tôi muốn đặt lịch demo 30 phút với đội ngũ tư vấn</span>
+                            </label>
+                        </div>
+                        <p class="text-xs text-gray-400">
+                            Dữ liệu của bạn được xử lý theo <a href="#" class="text-purple-400 hover:underline">Chính sách Bảo mật</a>
+                        </p>
+                        <button type="submit" class="cta-button primary w-full">
+                            Gửi yêu cầu
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- THÔNG TIN BÊN PHẢI -->
+                <div class="contact-info-wrapper">
+                    <h3 class="text-2xl font-bold mb-6">Thông tin liên hệ</h3>
+                    <div class="space-y-6">
+                        
+                        <!-- Email -->
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="contact-title">Email</h4>
+                                <p class="contact-detail">Hỗ trợ: <a href="mailto:support@hrms.vn" class="contact-link">support@hrms.vn</a></p>
+                                <p class="contact-detail">Sales: <a href="mailto:sales@hrms.vn" class="contact-link">sales@hrms.vn</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Hotline -->
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="contact-title">Hotline</h4>
+                                <p class="contact-detail"><a href="tel:1900123456" class="contact-link">1900 123 456</a></p>
+                                <p class="text-sm text-gray-400">T2-T6: 8:00 - 17:30</p>
+                            </div>
+                        </div>
+
+                        <!-- Địa chỉ -->
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="contact-title">Văn phòng</h4>
+                                <p class="contact-detail">Tầng 10, Tòa nhà ABC<br>123 Đường XYZ, Quận 1<br>TP. Hồ Chí Minh</p>
+                            </div>
+                        </div>
+
+                        <!-- Chat -->
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="contact-title">Chat trực tiếp</h4>
+                                <div class="flex gap-3 mt-2">
+                                    <a href="#" class="chat-badge">💬 Zalo</a>
+                                    <a href="#" class="chat-badge">📱 WhatsApp</a>
+                                    <a href="#" class="chat-badge">👔 Teams</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map placeholder -->
+                    <div class="mt-8">
+                        <h4 class="font-semibold mb-3">Bản đồ</h4>
+                        <div class="map-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                                <line x1="8" y1="2" x2="8" y2="18"></line>
+                                <line x1="16" y1="6" x2="16" y2="22"></line>
+                            </svg>
+                            <p class="text-sm text-gray-400 mt-2">Google Maps sẽ hiển thị ở đây</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center mb-12">Câu hỏi thường gặp</h3>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Giá của HRMS như thế nào?</span>
+                            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Chúng tôi có gói Free (0đ) cho tối đa 10 nhân viên, gói Pro (99k/người/tháng), và gói Enterprise (tùy chỉnh).
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Mất bao lâu để triển khai?</span>
+                            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Thời gian triển khai trung bình là 1-2 tuần tùy quy mô. Chúng tôi hỗ trợ setup, import dữ liệu và training.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Dữ liệu có an toàn không?</span>
+                            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Chúng tôi sử dụng mã hóa AES-256, chứng nhận ISO 27001, backup tự động mỗi 6 giờ. Dữ liệu được bảo vệ tối đa.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Có thể import dữ liệu từ hệ thống cũ?</span>
+                            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Có, chúng tôi hỗ trợ import từ Excel, CSV và các phần mềm phổ biến (MISA, SAP).
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Có dùng thử không?</span>
+                            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Có! Bạn có thể dùng thử miễn phí 30 ngày với đầy đủ tính năng Pro, không cần thẻ tín dụng.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA cuối -->
+            <div class="text-center mt-16">
+                <p class="text-lg text-gray-400 mb-6">Vẫn còn thắc mắc? Hãy để chúng tôi giúp bạn!</p>
+                <a href="#contact-form" class="cta-button primary inline-flex items-center text-lg px-8 py-4">
+                    Đặt lịch demo ngay
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v12h4a2 2 0 002-2v-2h-6V12zm-8 0H4a2 2 0 01-2-2v-2h6V12zm8-4V4a2 2 0 00-2-2H8a2 2 0 00-2 2v4h12z"></path>
+                        </svg>
+                        <span class="text-xl font-bold">HRMS</span>
+                    </div>
+                    <p class="footer-text">Giải pháp quản lý nhân sự thông minh cho doanh nghiệp Việt</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Sản phẩm</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="footer-link">Tính năng</a></li>
+                        <li><a href="#features" class="footer-link">Bảng giá</a></li>
+                        <li><a href="#contact" class="footer-link">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Công ty</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="footer-link">Về chúng tôi</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#about" class="footer-link">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Hỗ trợ</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#contact" class="footer-link">Trung tâm trợ giúp</a></li>
+                        <li><a href="#contact" class="footer-link">Liên hệ</a></li>
+                        <li><a href="#" class="footer-link">Điều khoản</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-opacity-20 pt-8 text-center footer-text">
+                <p>&copy; 2024 HRMS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/Final_Project/assets/js/landing.js"></script>
+</body>
+</html>
