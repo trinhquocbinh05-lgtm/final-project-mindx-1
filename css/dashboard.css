@@ -1,0 +1,550 @@
+/* ==========================================
+   DASHBOARD SPECIFIC STYLES
+   ========================================== */
+
+.dashboard-content {
+    padding: 0 !important;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+    background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.2);
+}
+
+.welcome-banner h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.welcome-banner p {
+    margin: 0;
+    opacity: 0.95;
+    font-size: 1rem;
+}
+
+/* Quick Stats Grid */
+.quick-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-content h3 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--c-text-secondary);
+    margin: 0 0 0.5rem 0;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    margin: 0 0 0.5rem 0;
+    line-height: 1;
+}
+
+.stat-change {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.stat-change.positive {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.stat-change.negative {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.stat-change.neutral {
+    background-color: var(--c-surface-hover);
+    color: var(--c-text-secondary);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.dashboard-card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.card-header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--c-text-primary);
+    margin: 0;
+}
+
+.card-badge {
+    background-color: var(--c-accent-light);
+    color: var(--c-accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.card-action-btn {
+    background: none;
+    border: none;
+    color: var(--c-accent);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.card-action-btn:hover {
+    background-color: var(--c-accent-light);
+}
+
+.card-count {
+    background-color: var(--c-accent);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Attendance Chart */
+.attendance-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 180px;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.chart-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    position: relative;
+}
+
+.chart-bar {
+    width: 100%;
+    background: linear-gradient(180deg, #7c3aed 0%, #a78bfa 100%);
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.chart-bar:hover {
+    opacity: 0.8;
+    transform: scaleY(1.05);
+}
+
+.chart-bar::before {
+    content: attr(data-value);
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--c-text-secondary);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.chart-bar:hover::before {
+    opacity: 1;
+}
+
+.chart-label {
+    font-size: 0.875rem;
+    color: var(--c-text-secondary);
+    font-weight: 500;
+}
+
+/* Recent Activities */
+.activities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.activity-item:hover {
+    background-color: var(--c-surface-hover);
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.activity-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-content p {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.875rem;
+    color: var(--c-text-primary);
+}
+
+.activity-content strong {
+    font-weight: 600;
+}
+
+.activity-meta {
+    font-size: 0.75rem;
+    color: var(--c-text-secondary);
+}
+
+/* Department Stats */
+.department-stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.dept-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dept-stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dept-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--c-text-primary);
+}
+
+.dept-count {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--c-text-secondary);
+}
+
+.dept-stat-bar {
+    height: 8px;
+    background-color: var(--c-surface-hover);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dept-stat-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+/* Birthdays List */
+.birthdays-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.birthday-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    background-color: #fdf4ff;
+    border: 1px solid #f3e8ff;
+    transition: all 0.2s ease;
+}
+
+.birthday-item:hover {
+    background-color: #fae8ff;
+    transform: translateX(4px);
+}
+
+.birthday-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ec4899, #f472b6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.birthday-avatar svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+}
+
+.birthday-info {
+    flex: 1;
+}
+
+.birthday-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--c-text-primary);
+    margin: 0 0 0.25rem 0;
+}
+
+.birthday-dept {
+    font-size: 0.75rem;
+    color: var(--c-text-secondary);
+}
+
+.birthday-date {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ec4899;
+    background-color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+}
+
+/* Leave List */
+.leave-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.leave-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    background-color: #fff7ed;
+    border: 1px solid #fed7aa;
+    transition: all 0.2s ease;
+}
+
+.leave-item:hover {
+    background-color: #ffedd5;
+}
+
+.leave-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f59e0b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.leave-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+}
+
+.leave-info {
+    flex: 1;
+}
+
+.leave-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--c-text-primary);
+    margin: 0 0 0.25rem 0;
+}
+
+.leave-reason {
+    font-size: 0.75rem;
+    color: var(--c-text-secondary);
+}
+
+/* Scrollbar Styles */
+.activities-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.activities-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.activities-list::-webkit-scrollbar-thumb {
+    background-color: var(--c-border);
+    border-radius: 3px;
+}
+
+.activities-list::-webkit-scrollbar-thumb:hover {
+    background-color: var(--c-text-secondary);
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .welcome-banner {
+    background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
+}
+
+body.dark-mode .stat-change.positive {
+    background-color: #064e3b;
+    color: #6ee7b7;
+}
+
+body.dark-mode .stat-change.negative {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+body.dark-mode .birthday-item {
+    background-color: #3b0764;
+    border-color: #581c87;
+}
+
+body.dark-mode .birthday-item:hover {
+    background-color: #4c0b7c;
+}
+
+body.dark-mode .leave-item {
+    background-color: #451a03;
+    border-color: #78350f;
+}
+
+body.dark-mode .leave-item:hover {
+    background-color: #78350f;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-banner {
+        padding: 1.5rem;
+    }
+
+    .welcome-banner h2 {
+        font-size: 1.5rem;
+    }
+
+    .stat-value {
+        font-size: 1.75rem;
+    }
+
+    .attendance-chart {
+        height: 150px;
+    }
+
+    .quick-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

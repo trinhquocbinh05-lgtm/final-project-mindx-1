@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMS - All Employees</title>
+    
+    <link rel="stylesheet" href="/Final_Project/css/employees.css">
+</head>
+<body>
+
+    <!-- Sidebar Container -->
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+
+        <!-- Header Container -->
+        <div id="header-container"></div>
+
+        <div class="content">
+            
+            <div class="toolbar">
+                <div class="search-box-large">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="table-search" placeholder="Search" class="search-input">
+                </div>
+
+                <div class="toolbar-actions">
+                    <button class="btn-primary" id="add-employee-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                        Add New Employee
+                    </button>
+
+                    <button class="btn-secondary" id="filter-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="4" y1="21" x2="4" y2="14"></line>
+                            <line x1="4" y1="10" x2="4" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12" y2="3"></line>
+                            <line x1="20" y1="21" x2="20" y2="16"></line>
+                            <line x1="20" y1="12" x2="20" y2="3"></line>
+                            <line x1="1" y1="14" x2="7" y2="14"></line>
+                            <line x1="9" y1="8" x2="15" y2="8"></line>
+                            <line x1="17" y1="16" x2="23" y2="16"></line>
+                        </svg>
+                        Filter
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="employees-table">
+                    <thead>
+                        <tr>
+                            <th>Employee Name</th>
+                            <th>Employee ID</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employees-table-body">
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <div class="pagination-info">
+                    Showing <span id="showing-from">1</span> to <span id="showing-to">10</span> out of <span id="total-records">60</span> records
+                </div>
+                <div class="pagination-controls">
+                    <button class="page-btn" id="prev-page">&lt;</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn">4</button>
+                    <button class="page-btn" id="next-page">&gt;</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="employee-modal" class="modal-overlay">
+            <div class="modal-content">
+                <form id="employee-form">
+                    <h2 id="modal-title">Add New Employee</h2>
+                    
+                    <input type="hidden" id="employee-id-hidden">
+
+                    <div class="form-group">
+                        <label for="modal-full-name">Full Name</label>
+                        <input type="text" id="modal-full-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modal-employee-id">Employee ID</label>
+                        <input type="text" id="modal-employee-id" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modal-department">Department</label>
+                        <select id="modal-department" required>
+                            <option value="">Select Department</option>
+                            <option value="Design">Design</option>
+                            <option value="Development">Development</option>
+                            <option value="Sales">Sales</option>
+                            <option valueV="PM">PM</option>
+                            <option value="HR">HR</option>
+                            <option value="BA">BA</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modal-designation">Designation (Chức vụ)</label>
+                        <input type="text" id="modal-designation" required>
+                    </div>
+
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="modal-type">Type</label>
+                            <select id="modal-type" required>
+                                <option value="Office">Office</option>
+                                <option value="Remote">Remote</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-status">Status</label>
+                            <select id="modal-status" required>
+                                <option value="Permanent">Permanent</option>
+                                <option value="Intern">Intern</option>
+                                <option value="Probation">Probation</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" id="modal-cancel-btn" class="btn-secondary">Cancel</button>
+                        <button type="submit" id="modal-save-btn" class="btn-primary">Save Employee</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="filter-modal" class="modal-overlay">
+            <div class="modal-content">
+                <form id="filter-form">
+                    <h2>Filter Employees</h2>
+                    
+                    <div class="form-group">
+                        <label for="filter-department">Department</label>
+                        <select id="filter-department">
+                            <option value="">All Departments</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="filter-type">Type</label>
+                        <select id="filter-type">
+                            <option value="">All Types</option>
+                            <option value="Office">Office</option>
+                            <option value="Remote">Remote</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="filter-status">Status</label>
+                        <select id="filter-status">
+                            <option value="">All Statuses</option>
+                            <option value="Permanent">Permanent</option>
+                        </select>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" id="filter-cancel-btn" class="btn-secondary">Cancel</button>
+                        <button type="button" id="filter-reset-btn" class="btn-secondary">Reset Filters</button>
+                        <button type="submit" id="filter-apply-btn" class="btn-primary">Apply Filters</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+<div id="delete-modal" class="modal-overlay">
+            <div class="modal-content modal-delete">
+                <form id="delete-form">
+                    <h2>Confirm Deletion</h2>
+                    <p>Are you sure you want to delete <strong id="delete-employee-name"></strong>? This action cannot be undone.</p>
+                    
+                    <div class="modal-actions">
+                        <button type="button" id="delete-cancel-btn" class="btn-secondary">Cancel</button>
+                        <button type="button" id="delete-confirm-btn" class="btn-primary btn-danger">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Load Components First -->
+    <script src="assets/js/components.js"></script>
+
+    <!-- Initialize Components -->
+    <script>
+        // Initialize sidebar and header components
+        initComponents('employees', 'All Employees', 'All Employee Information', {
+            showSearch: false,
+            showAddButton: false,
+            showFilter: false
+        });
+    </script>
+
+    <!-- Load Global Scripts -->
+    <script src="/Final_Project/assets/js/global.js"></script>
+
+    <!-- Load Page-Specific Scripts -->
+    <script src="/Final_Project/assets/js/employees.js"></script>
+</body>
+</html>

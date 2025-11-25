@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMS - All Departments</title>
+    
+    <link rel="stylesheet" href="/Final_Project/css/employees.css">
+    <link rel="stylesheet" href="/Final_Project/css/departments.css">
+</head>
+<body>
+
+    <!-- Sidebar Container -->
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+
+        <!-- Header Container -->
+        <div id="header-container"></div>
+
+        <div class="content">
+
+            
+            <div class="toolbar">
+                <div class="search-box-large">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="table-search" placeholder="Search by department name or HOD..." class="search-input">
+                </div>
+
+                <div class="toolbar-actions">
+                    <button class="btn-primary" id="add-department-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                        Add New Department
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="employees-table"> <thead>
+                        <tr>
+                            <th>Department Name</th>
+                            <th>Head of Department (HOD)</th>
+                            <th>Total Employees</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="departments-table-body">
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <div class="pagination-info">
+                    Showing <span id="showing-from">1</span> to <span id="showing-to">6</span> out of <span id="total-records">6</span> records
+                </div>
+                <div class="pagination-controls">
+                    <button class="page-btn" id="prev-page">&lt;</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn" id="next-page">&gt;</button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </main>
+
+    <!-- Department Modal -->
+    <div id="department-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Department Details</h2>
+                <button class="modal-close" id="close-modal-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Load Components First -->
+    <script src="assets/js/components.js"></script>
+
+    <!-- Initialize Components -->
+    <script>
+        // Initialize sidebar and header components
+        initComponents('departments', 'All Departments', 'Department Management', {
+            showSearch: false,
+            showAddButton: false,
+            showFilter: false
+        });
+    </script>
+
+    <!-- Load Global Scripts -->
+    <script src="/Final_Project/assets/js/global.js"></script>
+
+    <!-- Load Page-Specific Scripts -->
+    <script src="/Final_Project/assets/js/departments.js"></script>
+</body>
+</html>

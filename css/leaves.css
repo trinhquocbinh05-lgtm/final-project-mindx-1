@@ -1,0 +1,851 @@
+/* ============================================
+   GLOBAL SAFETY (CHỐNG VỠ ICON)
+   ============================================ */
+svg {
+    max-width: 100%;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   LEAVE BALANCE SECTION
+   ============================================ */
+.leave-balance-container {
+    background: linear-gradient(135deg, var(--c-accent) 0%, #6366f1 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.2);
+    color: white;
+}
+
+.leave-balance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.leave-balance-header h3 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.balance-select {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+}
+
+.balance-select option {
+    background: var(--c-surface);
+    color: var(--c-text-primary);
+}
+
+.leave-balance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.balance-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.balance-card:hover {
+    background: white;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.balance-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.balance-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.balance-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.balance-label {
+    font-size: 0.875rem;
+    color: #4b5563; /* Màu xám đậm cố định vì nền luôn sáng */
+    font-weight: 600;
+}
+
+.balance-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827; /* Màu đen cố định */
+}
+
+/* ============================================
+   LEAVES STATS GRID
+   ============================================ */
+.leaves-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.leave-stat-card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.leave-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.leave-stat-card .stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.leave-stat-card .stat-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.leave-stat-card .stat-content h4 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--c-text-secondary);
+    margin: 0 0 0.5rem 0;
+}
+
+.leave-stat-card .stat-value {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    margin: 0;
+}
+
+/* ============================================
+   LEAVES HEADER & FILTERS
+   ============================================ */
+.leaves-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.leaves-filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.filter-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 160px;
+}
+
+.filter-icon {
+    position: absolute;
+    left: 1rem;
+    width: 18px;
+    height: 18px;
+    stroke: var(--c-text-secondary);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.filter-group .filter-select {
+    padding-left: 2.75rem;
+    flex: 1;
+    background-color: var(--c-surface);
+    border: 1.5px solid var(--c-border);
+    border-radius: 10px;
+    color: var(--c-text-primary);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    height: 44px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+.filter-group .filter-select:hover {
+    border-color: var(--c-accent);
+    background-color: var(--c-surface-hover);
+}
+
+.filter-group .filter-select:focus {
+    outline: none;
+    border-color: var(--c-accent);
+    box-shadow: 0 0 0 3px var(--c-accent-light);
+}
+
+.filter-group:hover .filter-icon {
+    stroke: var(--c-accent);
+}
+
+.leaves-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+/* ============================================
+   LEAVES TABLE
+   ============================================ */
+.leaves-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leaves-table th {
+    text-align: left;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--c-text-secondary);
+    border-bottom: 2px solid var(--c-border);
+}
+
+.leaves-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--c-border);
+    font-size: 0.875rem;
+    color: var(--c-text-primary);
+}
+
+.leaves-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.leaves-table tbody tr:hover {
+    background-color: var(--c-surface-hover);
+}
+
+.employee-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.employee-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--c-surface-hover);
+    border: 1px solid var(--c-border);
+    color: var(--c-text-secondary);
+}
+
+.employee-avatar svg {
+    width: 20px;
+    height: 20px;
+}
+
+.employee-name {
+    font-weight: 500;
+    display: block;
+}
+
+.employee-dept {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--c-text-secondary);
+    margin-top: 2px;
+}
+
+.leave-type-badge {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.leave-reason {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid var(--c-border);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--c-text-secondary);
+    transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+    border-color: var(--c-accent);
+    color: var(--c-accent);
+}
+
+.btn-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-icon-success:hover {
+    background-color: #d1fae5;
+    border-color: #10b981;
+    color: #065f46;
+}
+
+.btn-icon-danger:hover {
+    background-color: #fee2e2;
+    border-color: #ef4444;
+    color: #991b1b;
+}
+
+/* ============================================
+   MODAL STYLES (NÂNG CẤP GIAO DIỆN)
+   ============================================ */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Tối hơn chút để tập trung */
+    z-index: 2000;
+    display: none;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--c-surface);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 550px; /* Chiều rộng vừa phải */
+    max-height: 85vh; /* Giới hạn chiều cao */
+    
+    /* QUAN TRỌNG: Flexbox để chia layout Header - Body */
+    display: flex;
+    flex-direction: column;
+    
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    border: 1px solid var(--c-border);
+    transform: scale(0.95);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 0; /* Xóa padding gốc để header dính sát lề */
+    overflow: hidden; /* Ẩn scroll của khung ngoài */
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+/* --- Header Cố Định --- */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--c-border);
+    background-color: var(--c-surface);
+    flex-shrink: 0; /* Không bị co lại */
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--c-text-primary);
+}
+
+.modal-close {
+    background: var(--c-surface-hover);
+    border: none;
+    cursor: pointer;
+    color: var(--c-text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    background-color: #fee2e2;
+    color: #ef4444;
+    transform: rotate(90deg);
+}
+
+/* --- Body Cuộn Riêng --- */
+.modal-body {
+    padding: 1.5rem;
+    overflow-y: auto; /* Chỉ cuộn phần này */
+    flex-grow: 1;
+    color: var(--c-text-primary);
+}
+
+/* --- Tùy chỉnh thanh cuộn (Scrollbar) --- */
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: var(--c-border);
+    border-radius: 3px;
+}
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--c-text-secondary);
+}
+
+/* --- Style nội dung bên trong --- */
+.leave-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Phần icon và tiêu đề loại nghỉ */
+.leave-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed var(--c-border);
+}
+
+.leave-type-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+/* Các section thông tin */
+.detail-section h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--c-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.75rem 0;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia đôi cột đều nhau */
+    gap: 1rem 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detail-label {
+    font-size: 0.8125rem;
+    color: var(--c-text-secondary);
+}
+
+.detail-value {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--c-text-primary);
+}
+
+/* Phần lý do nghỉ (Làm đẹp hơn) */
+.leave-reason-text {
+    background-color: var(--c-surface-hover);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--c-accent);
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--c-text-primary);
+}
+
+/* Phần nút bấm (Footer) */
+.modal-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--c-border);
+    justify-content: flex-end;
+    position: sticky; /* Dính đáy nếu nội dung dài */
+    bottom: -1.5rem;
+    background: var(--c-surface);
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    margin-bottom: -1.5rem;
+    padding: 1rem 1.5rem;
+}
+
+.btn-primary, .btn-danger, .btn-secondary {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: transform 0.1s;
+    border: none;
+}
+
+.btn-primary:active, .btn-danger:active, .btn-secondary:active {
+    transform: scale(0.96);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--c-border);
+    color: var(--c-text-primary);
+}
+.btn-secondary:hover {
+    background-color: var(--c-surface-hover);
+}
+
+/* ============================================
+   LEAVE DETAILS IN MODAL
+   ============================================ */
+.leave-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.leave-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.leave-type-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.leave-type-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.leave-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.detail-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.detail-section h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--c-text-primary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detail-label {
+    font-size: 0.875rem;
+    color: var(--c-text-secondary);
+}
+
+.detail-value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--c-text-primary);
+}
+
+.leave-reason-text {
+    background-color: var(--c-surface-hover);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--c-accent);
+    margin: 0;
+    color: var(--c-text-primary);
+    line-height: 1.6;
+}
+
+.approval-section {
+    background-color: #d1fae5;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #10b981;
+}
+
+.approval-section h4 { color: #065f46; }
+
+.rejection-section {
+    background-color: #fee2e2;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #ef4444;
+}
+
+.rejection-section h4 { color: #991b1b; }
+
+.rejection-reason {
+    background-color: rgba(255,255,255,0.6);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0 0 0;
+    color: var(--c-text-primary);
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .approval-section { background-color: #064e3b; border-color: #059669; }
+body.dark-mode .approval-section h4 { color: #6ee7b7; }
+body.dark-mode .rejection-section { background-color: #7f1d1d; border-color: #dc2626; }
+body.dark-mode .rejection-section h4 { color: #fca5a5; }
+body.dark-mode .rejection-reason { background-color: rgba(0,0,0,0.2); }
+
+/* ============================================
+   CALENDAR MODAL
+   ============================================ */
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--c-surface-hover);
+    border-radius: 10px;
+}
+
+.calendar-controls h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--c-text-primary);
+}
+
+.btn-sm {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.btn-sm svg {
+    width: 16px;
+    height: 16px;
+}
+
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.calendar-day-header {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--c-text-secondary);
+    background: var(--c-surface-hover);
+    border-radius: 6px;
+}
+
+.calendar-day {
+    position: relative;
+    padding: 0.5rem;
+    min-height: 100px;
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    background: var(--c-surface);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.calendar-day:hover {
+    border-color: var(--c-accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.calendar-day.other-month { opacity: 0.3; }
+.calendar-day.today { border: 2px solid var(--c-accent); }
+
+.calendar-day-number {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--c-text-primary);
+    margin-bottom: 0.5rem;
+    text-align: right;
+}
+
+.calendar-leave-item {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.calendar-leave-item.pending { background: #fef3c7; color: #92400e; }
+.calendar-leave-item.approved { background: #d1fae5; color: #065f46; }
+.calendar-leave-item.rejected { background: #fee2e2; color: #991b1b; }
+
+.calendar-legend {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--c-surface-hover);
+    border-radius: 8px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--c-text-primary);
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .leave-balance-header,
+    .leaves-header,
+    .leaves-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .leave-balance-grid { grid-template-columns: 1fr; }
+    
+    .filter-group, .balance-select, .filter-select { width: 100%; }
+    
+    #calendar-grid { gap: 0.25rem; }
+    .calendar-day { min-height: 60px; }
+    .calendar-day-header { padding: 0.5rem 0.25rem; font-size: 0.75rem; }
+}

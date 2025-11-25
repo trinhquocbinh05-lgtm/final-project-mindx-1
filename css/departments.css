@@ -1,0 +1,272 @@
+/* ============================================
+   ACTION BUTTONS (SỬA LỖI MẤT ICON)
+   ============================================ */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid var(--c-border);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--c-text-secondary); /* Màu mặc định */
+}
+
+.btn-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2; /* Độ dày nét vẽ */
+}
+
+.btn-icon:hover {
+    background-color: var(--c-surface-hover);
+    border-color: var(--c-accent);
+    color: var(--c-accent);
+}
+
+/* Màu riêng cho từng nút */
+.btn-icon.view:hover { color: #3b82f6; border-color: #3b82f6; background: #eff6ff; }
+.btn-icon.edit { color: #f59e0b; } 
+.btn-icon.edit:hover { color: #f59e0b; border-color: #f59e0b; background: #fffbeb; }
+.btn-icon.delete { color: #ef4444; }
+.btn-icon.delete:hover { color: #ef4444; border-color: #ef4444; background: #fef2f2; }
+
+
+/* ============================================
+   MODAL STYLES (SỬA LỖI MODAL HIỆN LUÔN)
+   ============================================ */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    
+    /* QUAN TRỌNG: Ẩn mặc định */
+    display: none; 
+    opacity: 0;
+    
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--c-surface);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    border: 1px solid var(--c-border);
+    position: relative;
+    transform: translateY(30px);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--c-border);
+    background: var(--c-surface);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--c-text-primary);
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--c-text-secondary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.modal-close:hover {
+    background-color: var(--c-surface-hover);
+    color: var(--c-text-primary);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 1.5rem;
+    color: var(--c-text-primary);
+}
+
+/* ============================================
+   DEPARTMENT DETAILS (BÊN TRONG MODAL)
+   ============================================ */
+.department-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.dept-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--c-surface-hover);
+    border-radius: 12px;
+    border: 1px solid var(--c-border);
+}
+
+.dept-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--c-surface);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-accent);
+    border: 1px solid var(--c-border);
+}
+
+.dept-icon svg { width: 28px; height: 28px; }
+
+.dept-title h3 {
+    font-size: 1.25rem;
+    margin: 0 0 0.25rem 0;
+    color: var(--c-text-primary);
+}
+
+.dept-title p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--c-text-secondary);
+}
+
+/* Section Titles */
+.detail-section h4 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    color: var(--c-text-secondary);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+/* HOD Card inside Modal */
+.hod-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+}
+
+.hod-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.hod-info { display: flex; flex-direction: column; }
+.hod-name { font-weight: 600; color: var(--c-text-primary); }
+.hod-role { font-size: 0.8125rem; color: var(--c-text-secondary); }
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat-item {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-item svg {
+    width: 24px;
+    height: 24px;
+    color: var(--c-accent);
+}
+
+.stat-label { display: block; font-size: 0.75rem; color: var(--c-text-secondary); }
+.stat-value { display: block; font-size: 1.125rem; font-weight: 700; color: var(--c-text-primary); }
+
+/* Form Styling */
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 500; }
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--c-border);
+    background: var(--c-surface);
+    color: var(--c-text-primary);
+}
+.form-input:focus { outline: none; border-color: var(--c-accent); }
+
+/* Modal Footer Actions */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--c-border);
+}
+
+.btn-primary, .btn-secondary {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+}
+
+.btn-primary { background: var(--c-accent); color: white; }
+.btn-secondary { background: transparent; border: 1px solid var(--c-border); color: var(--c-text-primary); }
+.btn-secondary:hover { background: var(--c-surface-hover); }

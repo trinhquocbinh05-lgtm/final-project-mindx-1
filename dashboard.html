@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMS - Dashboard</title>
+
+    <link rel="stylesheet" href="/Final_Project/css/employees.css">
+    <link rel="stylesheet" href="/Final_Project/css/dashboard.css">
+</head>
+<body>
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+
+        <div id="header-container"></div>
+
+        <div class="content dashboard-content">
+
+            <div class="welcome-banner">
+                <h2 id="greeting-message">Welcome to your Dashboard!</h2>
+                <p>Here's what's happening with your company today</p>
+            </div>
+
+            <div id="quick-stats" class="quick-stats-grid"></div>
+
+            <div class="dashboard-grid">
+
+                <div class="dashboard-card full-width">
+                    <div class="card-header">
+                        <h3>Attendance Trend (Last 7 Days)</h3>
+                        <span class="card-badge">Weekly</span>
+                    </div>
+                    <div id="attendance-chart" class="attendance-chart"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Recent Activities</h3>
+                        <button class="card-action-btn">View All</button>
+                    </div>
+                    <div id="recent-activities" class="activities-list"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Department Distribution</h3>
+                        <button class="card-action-btn">Details</button>
+                    </div>
+                    <div id="department-stats" class="department-stats-list"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Upcoming Birthdays</h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: #ec4899;">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                        </svg>
+                    </div>
+                    <div id="upcoming-birthdays" class="birthdays-list"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>On Leave Today</h3>
+                        <span class="card-count" id="leave-count">2</span>
+                    </div>
+                    <div id="on-leave-list" class="leave-list"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script src="/Final_Project/assets/js/components.js"></script>
+
+    <script>
+        initComponents('dashboard', 'Dashboard', 'Overview', {
+            showSearch: true,
+            showAddButton: false,
+            showFilter: false
+        });
+    </script>
+
+    <script src="/Final_Project/assets/js/global.js"></script>
+    <script src="/Final_Project/assets/js/dashboard.js"></script>
+</body>
+</html>

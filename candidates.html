@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMS - Candidates</title>
+    <link rel="stylesheet" href="/Final_Project/css/employees.css">
+    <link rel="stylesheet" href="/Final_Project/css/candidates.css">
+</head>
+<body>
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="content">
+
+            <div class="candidates-pipeline">
+                <div class="pipeline-stage" data-stage="applied">
+                    <div class="pipeline-header">
+                        <h3>Applied</h3>
+                        <span class="pipeline-count" id="applied-count">0</span>
+                    </div>
+                    <div class="pipeline-cards" id="applied-cards"></div>
+                </div>
+
+                <div class="pipeline-stage" data-stage="screening">
+                    <div class="pipeline-header">
+                        <h3>Screening</h3>
+                        <span class="pipeline-count" id="screening-count">0</span>
+                    </div>
+                    <div class="pipeline-cards" id="screening-cards"></div>
+                </div>
+
+                <div class="pipeline-stage" data-stage="interview">
+                    <div class="pipeline-header">
+                        <h3>Interview</h3>
+                        <span class="pipeline-count" id="interview-count">0</span>
+                    </div>
+                    <div class="pipeline-cards" id="interview-cards"></div>
+                </div>
+
+                <div class="pipeline-stage" data-stage="offer">
+                    <div class="pipeline-header">
+                        <h3>Offer</h3>
+                        <span class="pipeline-count" id="offer-count">0</span>
+                    </div>
+                    <div class="pipeline-cards" id="offer-cards"></div>
+                </div>
+
+                <div class="pipeline-stage" data-stage="hired">
+                    <div class="pipeline-header">
+                        <h3>Hired</h3>
+                        <span class="pipeline-count" id="hired-count">0</span>
+                    </div>
+                    <div class="pipeline-cards" id="hired-cards"></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="candidate-modal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="modal-title">Candidate Details</h2>
+                <button class="modal-close" id="close-modal-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="assets/js/components.js"></script>
+    <script>
+        initComponents('candidates', 'Candidates', 'Applicant Tracking System', {
+            showSearch: true,
+            showAddButton: true,
+            addButtonText: 'Add Candidate',
+            addButtonId: 'add-candidate-btn',
+            showFilter: false
+        });
+    </script>
+    <script src="/Final_Project/assets/js/global.js"></script>
+    <script src="/Final_Project/assets/js/candidates.js"></script>
+</body>
+</html>

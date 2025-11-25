@@ -1,0 +1,550 @@
+/* ============================================
+   JOBS STATS GRID
+   ============================================ */
+.jobs-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.job-stat-card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.job-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.job-stat-card .stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.job-stat-card .stat-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.job-stat-card .stat-content h4 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--c-text-secondary);
+    margin: 0 0 0.5rem 0;
+}
+
+.job-stat-card .stat-value {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    margin: 0;
+}
+
+/* ============================================
+   JOBS HEADER & FILTERS
+   ============================================ */
+.jobs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.jobs-filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.filter-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 180px;
+}
+
+.filter-icon {
+    position: absolute;
+    left: 1rem;
+    width: 18px;
+    height: 18px;
+    stroke: var(--c-text-secondary);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.filter-group .filter-select {
+    padding-left: 2.75rem;
+    flex: 1;
+    background-color: var(--c-surface);
+    border: 1.5px solid var(--c-border);
+    border-radius: 10px;
+    color: var(--c-text-primary);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    height: 44px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    appearance: none;
+    /* SVG arrow icon encoded */
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+.filter-group .filter-select:hover {
+    border-color: var(--c-accent);
+    background-color: var(--c-surface-hover);
+}
+
+.filter-group .filter-select:focus {
+    outline: none;
+    border-color: var(--c-accent);
+    box-shadow: 0 0 0 3px var(--c-accent-light);
+}
+
+.filter-group:hover .filter-icon {
+    stroke: var(--c-accent);
+}
+
+/* ============================================
+   JOBS GRID & CARD
+   ============================================ */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1.5rem;
+}
+
+.job-card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.job-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: var(--c-accent);
+}
+
+.job-card.job-closed {
+    opacity: 0.7;
+    filter: grayscale(0.8); /* Làm xám màu thẻ đóng */
+}
+
+.job-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.job-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--c-text-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.job-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--c-text-secondary);
+    flex-wrap: wrap;
+}
+
+.job-separator {
+    color: var(--c-border);
+}
+
+.job-department {
+    font-weight: 500;
+    color: var(--c-accent);
+}
+
+.job-description {
+    color: var(--c-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+    /* Cắt dòng nếu quá dài */
+    display: -webkit-box;
+    line-clamp: 2;
+    box-orient: vertical;
+    overflow: hidden;
+}
+
+.job-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.job-tag {
+    background-color: var(--c-surface-hover);
+    color: var(--c-text-primary);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.375rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--c-border);
+}
+
+.job-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--c-border);
+}
+
+.applicants-count {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--c-text-secondary);
+    font-size: 0.875rem;
+}
+
+.applicants-count svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-view {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--c-accent);
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-view:hover {
+    background-color: var(--c-accent-light);
+}
+
+.btn-view svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.empty-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.empty-state svg {
+    width: 64px;
+    height: 64px;
+    stroke: var(--c-text-secondary);
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--c-text-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.empty-state p {
+    color: var(--c-text-secondary);
+    margin: 0;
+}
+
+/* ============================================
+   MODAL STYLES (QUAN TRỌNG: SỬA LỖI HIỆN LUÔN)
+   ============================================ */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Nền tối mờ */
+    z-index: 2000; /* Nằm trên cùng */
+    
+    /* QUAN TRỌNG: Mặc định ẩn */
+    display: none; 
+    opacity: 0;
+    
+    /* Căn giữa nội dung */
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(4px); /* Hiệu ứng mờ nền */
+}
+
+/* Chỉ hiện khi có class 'active' */
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--c-surface);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px; /* Mặc định */
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    border: 1px solid var(--c-border);
+    position: relative;
+    
+    /* Animation trượt lên */
+    transform: translateY(30px);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+/* Modal Large */
+.modal-large {
+    max-width: 800px;
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--c-border);
+    position: sticky;
+    top: 0;
+    background-color: var(--c-surface);
+    z-index: 10;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--c-text-primary);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--c-text-secondary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background-color: var(--c-surface-hover);
+    color: var(--c-text-primary);
+    transform: rotate(90deg); /* Xoay khi hover */
+}
+
+.modal-body {
+    padding: 2rem;
+    color: var(--c-text-primary);
+}
+
+/* Modal Actions (Footer) */
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--c-border);
+    justify-content: flex-end;
+}
+
+/* ============================================
+   JOB DETAILS STYLING (Bên trong Modal)
+   ============================================ */
+.job-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.job-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.job-details-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    margin: 0 0 0.75rem 0;
+}
+
+.job-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.detail-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--c-surface-hover);
+    border-radius: 12px;
+    border: 1px solid var(--c-border);
+}
+
+.detail-box svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--c-accent);
+    flex-shrink: 0;
+}
+
+.detail-box > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detail-label {
+    font-size: 0.8125rem;
+    color: var(--c-text-secondary);
+}
+
+.detail-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--c-text-primary);
+}
+
+.job-section h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--c-text-primary);
+    margin: 0 0 1rem 0;
+}
+
+.job-section p {
+    color: var(--c-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.job-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.job-list li {
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--c-text-secondary);
+    line-height: 1.6;
+}
+
+.job-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--c-accent);
+    font-weight: bold;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .jobs-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .jobs-filters {
+        flex-direction: column;
+    }
+
+    .filter-group {
+        min-width: 100%;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+
+    .jobs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .job-details-header {
+        flex-direction: column;
+    }
+
+    .job-details-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-height: 85vh;
+    }
+}

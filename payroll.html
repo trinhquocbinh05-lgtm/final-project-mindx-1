@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMS - Payroll Management</title>
+    <link rel="stylesheet" href="/Final_Project/css/employees.css">
+    <link rel="stylesheet" href="/Final_Project/css/payroll.css">
+</head>
+<body>
+
+    <div id="sidebar-container"></div>
+
+    <main class="main-content">
+        <div id="header-container"></div>
+
+        <div class="content">
+
+            <div class="payroll-stats-grid">
+                <div class="payroll-stat-card">
+                    <div class="stat-icon-wrapper" style="background-color: #dbeafe;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Total Payroll</h4>
+                        <p class="stat-amount" id="total-payroll">$0</p>
+                        <span class="stat-period">This month</span>
+                    </div>
+                </div>
+
+                <div class="payroll-stat-card">
+                    <div class="stat-icon-wrapper" style="background-color: #d1fae5;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Paid</h4>
+                        <p class="stat-amount" id="paid-count">0</p>
+                        <span class="stat-period">Employees</span>
+                    </div>
+                </div>
+
+                <div class="payroll-stat-card">
+                    <div class="stat-icon-wrapper" style="background-color: #fef3c7;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Pending</h4>
+                        <p class="stat-amount" id="pending-count">0</p>
+                        <span class="stat-period">Payments</span>
+                    </div>
+                </div>
+
+                <div class="payroll-stat-card">
+                    <div class="stat-icon-wrapper" style="background-color: #ede9fe;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <line x1="17" y1="5" x2="9" y2="5"></line>
+                            <line x1="15" y1="9" x2="9" y2="9"></line>
+                            <line x1="13" y1="13" x2="9" y2="13"></line>
+                            <line x1="15" y1="17" x2="9" y2="17"></line>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Average Salary</h4>
+                        <p class="stat-amount" id="avg-salary">$0</p>
+                        <span class="stat-period">Per employee</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payroll-filters">
+                <div class="filter-group">
+                    <label for="month-filter">Month</label>
+                    <select id="month-filter" class="filter-select">
+                        <option value="12">December 2024</option>
+                        <option value="11">November 2024</option>
+                        <option value="10">October 2024</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="status-filter">Status</label>
+                    <select id="status-filter" class="filter-select">
+                        <option value="all">All Status</option>
+                        <option value="paid">Paid</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="dept-filter">Department</label>
+                    <select id="dept-filter" class="filter-select">
+                        <option value="all">All Departments</option>
+                        <option value="development">Development</option>
+                        <option value="design">Design</option>
+                        <option value="sales">Sales</option>
+                        <option value="marketing">Marketing</option>
+                    </select>
+                </div>
+
+                <button class="btn-primary" id="process-payroll-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Process Payroll
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table class="payroll-table">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Department</th>
+                            <th>Base Salary</th>
+                            <th>Allowances</th>
+                            <th>Deductions</th>
+                            <th>Net Salary</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="payroll-table-body">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="payroll-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Salary Details</h2>
+                <button class="modal-close" id="close-modal-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="modal-body" id="modal-body">
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/components.js"></script>
+    <script>
+        initComponents('payroll', 'Payroll', 'Salary Management', {
+            showSearch: true,
+            showAddButton: false,
+            showFilter: false
+        });
+    </script>
+    <script src="/Final_Project/assets/js/global.js"></script>
+    <script src="/Final_Project/assets/js/payroll.js"></script>
+</body>
+</html>

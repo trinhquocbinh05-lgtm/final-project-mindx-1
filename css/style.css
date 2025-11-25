@@ -1,0 +1,461 @@
+/* --- BẢNG MÀU DÙNG BIẾN CSS --- */
+:root {
+  /* DARK MODE (Mặc định) */
+  --c-bg: #0a0a0f;
+  --c-surface: #1c1b29;
+  --c-surface-input: #161521;
+  --c-surface-input-hover: #2a273a;
+  --c-overlay-start: #8257e6;
+  --c-overlay-end: #7645e6;
+  --c-text-primary: white;
+  --c-text-secondary: #9ca3af;
+  --c-text-on-overlay: white;
+  --c-border: #4a4a6a;
+  --c-border-container: rgba(255, 255, 255, 0.1);
+  --c-accent: #7645e6;
+  --c-accent-hover: #7c3aed;
+  --c-glow-container: rgba(255, 255, 255, 0.08);
+  --c-glow-element: rgba(167, 139, 250, 0.5);
+  --c-glow-overlay-btn: #a78bfa;
+}
+
+body.light-mode {
+  /* LIGHT MODE */
+  --c-bg: #f0f2f5;
+  --c-surface: #ffffff;
+  --c-surface-input: #e4e6eb;
+  --c-surface-input-hover: #dfe1e4;
+  --c-text-primary: #1c1e21;
+  --c-text-secondary: #65676b;
+  --c-border: #ced0d4;
+  --c-border-container: rgba(0, 0, 0, 0.1);
+  --c-glow-container: rgba(118, 69, 230, 0.2);
+  --c-glow-element: rgba(118, 69, 230, 0.3);
+}
+
+/* --- ÁP DỤNG BIẾN VÀ KHÔI PHỤC STYLE --- */
+body {
+  background-color: var(--c-bg);
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.4s ease;
+}
+
+#main-container {
+  border: 1px solid var(--c-border-container);
+  box-shadow: 0 0 15px var(--c-glow-container),
+    0 0 35px var(--c-glow-container),
+    0 0 70px var(--c-glow-container);
+  transition: all 0.4s ease;
+}
+
+.form-container {
+  background-color: var(--c-surface);
+  transition: transform 0.6s ease-in-out, background-color 0.4s ease;
+}
+
+h1,
+h2 {
+  color: var(--c-text-primary);
+  transition: color 0.4s ease;
+}
+
+p,
+.text-gray-400 {
+  color: var(--c-text-secondary);
+  transition: color 0.4s ease;
+}
+
+.text-purple-400 {
+  color: var(--c-accent);
+}
+
+.text-purple-400:hover {
+  color: var(--c-accent-hover);
+}
+
+#overlay {
+  background: linear-gradient(to right, var(--c-overlay-start), var(--c-overlay-end));
+  color: var(--c-text-on-overlay);
+}
+
+/* Floating Label */
+.custom-label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-text-secondary);
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+}
+
+.custom-input:focus+.custom-label,
+.custom-input:not(:placeholder-shown)+.custom-label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: var(--c-accent);
+  background-color: var(--c-surface);
+  padding: 0 0.25rem;
+  border-radius: 6px;
+}
+
+/* Input Effects */
+.custom-input {
+  background-color: var(--c-surface-input);
+  border: 1px solid var(--c-border);
+  color: var(--c-text-primary);
+  padding: 12px 15px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-input:hover {
+  border-color: var(--c-accent);
+  transform: scale(1.04);
+  background-color: var(--c-surface-input-hover);
+  box-shadow: 0 0 10px var(--c-glow-element), 0 0 20px var(--c-glow-element);
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px var(--c-glow-element);
+}
+
+/* Buttons */
+.login-button {
+  background-color: var(--c-accent);
+  color: var(--c-text-on-overlay);
+  font-weight: bold;
+  padding: 12px 45px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+  transition: all 0.2s ease-in-out;
+}
+
+.login-button:hover {
+  background-color: var(--c-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.8),
+              0 0 20px rgba(139, 92, 246, 0.6),
+              0 0 30px rgba(139, 92, 246, 0.4),
+              0 0 40px rgba(139, 92, 246, 0.2);
+}
+
+.overlay-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--c-text-on-overlay);
+  color: var(--c-text-on-overlay);
+  font-weight: bold;
+  padding: 12px 45px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.overlay-button:hover {
+  background-color: var(--c-text-on-overlay);
+  color: var(--c-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 0 5px var(--c-glow-overlay-btn), 0 0 10px var(--c-glow-overlay-btn),
+    0 0 20px var(--c-glow-overlay-btn), 0 0 40px var(--c-glow-overlay-btn);
+}
+
+/* Social Divider & Buttons */
+.social-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--c-text-secondary);
+  margin: 0px 0;
+  cursor: default;
+}
+
+.social-divider::before,
+.social-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--c-border);
+  transition: border-color 0.4s ease;
+}
+
+.social-divider:not(:empty)::before {
+  margin-right: 0.5em;
+}
+
+.social-divider:not(:empty)::after {
+  margin-left: 0.5em;
+}
+
+.social-buttons-container {
+  display: flex;
+  gap: 15px;
+  margin-top: 18px;
+}
+
+.social-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--c-surface-input);
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  color: var(--c-text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-button:hover {
+  border-color: var(--c-accent);
+  transform: translateY(-3px);
+  background-color: var(--c-surface-input-hover);
+  box-shadow: 0 0 10px var(--c-glow-element), 0 0 20px var(--c-glow-element);
+}
+
+.social-button:hover span {
+  color: var(--c-text-primary);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+body.light-mode .social-button:hover span {
+  text-shadow: none;
+}
+
+.social-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* --- LOGIC CHUYỂN CẢNH SIGN-UP and LOGIN--- */
+
+.sign-up-container {
+  left: 0;
+  opacity: 0;
+  width: 50%;
+  z-index: 1;
+}
+
+.login-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+#overlay-container {
+  
+  transition: transform 0.6s ease-in-out;
+}
+
+@keyframes show {
+
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  width: 50%;
+  transition: transform 0.6s ease-in-out;
+}
+.overlay-panel p{color: white; opacity: 0.6;}
+.overlay-left {
+  transform: translateX(-20%);
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+#main-container.right-panel-active .login-container {
+  transform: translateX(100%);
+}
+#main-container.right-panel-active .sign-up-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: show 0.6s;
+}
+#main-container.right-panel-active #overlay-container {
+  transform: translateX(-100%);
+}
+#main-container.right-panel-active #overlay {
+  transform: translateX(50%);
+}
+#main-container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+#main-container.right-panel-active .overlay-right {
+  transform: translateX(20%);
+}
+/* === CSS CHO TOGGLE SWITCH (ĐÃ ĐƠN GIẢN HÓA) === */
+.theme-toggle-switch {
+  z-index: 100;
+  width: 60px;
+  height: 30px;
+  background-color: var(--c-surface-input);
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--c-border);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.toggle-thumb {
+  width: 24px;
+  height: 24px;
+  background-color: var(--c-text-secondary);
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.3s ease-in-out, background-color 0.4s ease;
+}
+
+.theme-toggle-switch.light-mode-active .toggle-thumb {
+  transform: translateX(30px);
+  background-color: var(--c-accent);
+}
+
+.toggle-thumb svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  color: var(--c-surface);
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.4s ease;
+}
+
+.toggle-thumb .sun {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.toggle-thumb .moon {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.theme-toggle-switch.light-mode-active .toggle-thumb .sun {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.theme-toggle-switch.light-mode-active .toggle-thumb .moon {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+/* Animation chữ */
+@keyframes jump {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    text-shadow: 0 0 10px white, 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+
+  50% {
+    transform: translateY(-25px);
+    text-shadow: 0 0 20px white, 0 0 40px rgba(255, 255, 255, 0.7);
+  }
+}
+
+@keyframes shadowJump {
+
+  0%,
+  100% {
+    transform: scale(1, 1);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scale(0.6, 0.6);
+    opacity: 0.1;
+  }
+}
+
+.animated-text span {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: var(--c-text-on-overlay);
+  animation: jump 2s infinite ease-in-out;
+}
+
+.animated-text span::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 10px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: shadowJump 2s infinite ease-in-out;
+}
+
+.animated-text span:nth-child(1),
+.animated-text span:nth-child(1)::after {
+  animation-delay: 0s;
+}
+
+.animated-text span:nth-child(2),
+.animated-text span:nth-child(2)::after {
+  animation-delay: 0.1s;
+}
+
+.animated-text span:nth-child(3),
+.animated-text span:nth-child(3)::after {
+  animation-delay: 0.2s;
+}
+
+.animated-text span:nth-child(4),
+.animated-text span:nth-child(4)::after {
+  animation-delay: 0.3s;
+}
+
+.animated-text span:nth-child(5),
+.animated-text span:nth-child(5)::after {
+  animation-delay: 0.4s;
+}
+
+.animated-text span:nth-child(6),
+.animated-text span:nth-child(6)::after {
+  animation-delay: 0.5s;
+}
+
+.animated-text span:nth-child(7),
+.animated-text span:nth-child(7)::after {
+  animation-delay: 0.6s;
+}
+
+.animated-text span:nth-child(8),
+.animated-text span:nth-child(8)::after {
+  animation-delay: 0.7s;
+}
