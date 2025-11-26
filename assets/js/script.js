@@ -6,7 +6,7 @@ const FAKE_DATABASE = [
     email: "admin@gmail.com",
     password: "0937858582",
     role: "HR Manager",
-    avatarPath: "/Final_Project/assets/img/admin.jpg" // Đường dẫn ảnh
+    avatarPath: "assets/img/admin.jpg" // Đường dẫn ảnh
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ const FAKE_DATABASE = [
     email: "user@gmail.com",
     password: "123456789",
     role: "Employee",
-    avatarPath: "/Final_Project/assets/img/user.png"
+    avatarPath: "assets/img/user.png"
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ const FAKE_DATABASE = [
     email: "trinhquocbinh05@gmail.com",
     password: "987654321",
     role: "Developer",
-    avatarPath: "/Final_Project/assets/img/binh.png"
+    avatarPath: "assets/img/binh.png"
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ const FAKE_DATABASE = [
     email: "mindx@gmail.com",
     password: "mindx",
     role: "Instructor",
-    avatarPath: "/Final_Project/assets/img/mindx.jpg"
+    avatarPath: "assets/img/mindx.jpg"
   }
 ];
 // ------------------------------------------
